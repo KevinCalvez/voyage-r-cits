@@ -40,8 +40,9 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8"
+              onClick={() => document.getElementById('offres')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Nos destinations
+              Nos offres
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
