@@ -33,9 +33,6 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Réserver
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,9 +63,6 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-2">
-                Réserver
-              </Button>
             </div>
           </div>
         )}

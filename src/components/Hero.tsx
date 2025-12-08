@@ -23,17 +23,17 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-card/20 backdrop-blur-sm rounded-full text-primary-foreground text-sm font-medium mb-6 animate-fade-in">
             <MapPin className="h-4 w-4" />
-            Explorez le monde avec nous
+            Agence de voyage
           </span>
 
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in [animation-delay:0.2s] opacity-0">
-            Découvrez des destinations{" "}
-            <span className="text-secondary">extraordinaires</span>
+            Vos vacances de rêve{" "}
+            <span className="text-secondary">à prix malin</span>
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in [animation-delay:0.4s] opacity-0">
-            Des voyages sur mesure pour des expériences inoubliables. Laissez-nous
-            vous guider vers les plus beaux endroits de la planète.
+            Découvrez nos offres exclusives et partez à l'aventure sans vous ruiner.
+            Des séjours tout compris aux meilleures destinations.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:0.6s] opacity-0">
