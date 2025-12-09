@@ -118,12 +118,20 @@ const Footer = () => {
           <p className="text-primary-foreground/50 text-sm">
             © 2024 Voyageur. Tous droits réservés.
           </p>
-          <Link 
-            to="/politique-confidentialite" 
-            className="text-primary-foreground/50 hover:text-secondary transition-colors text-sm"
-          >
-            Politique de confidentialité
-          </Link>
+          <div className="flex gap-6">
+            <Link 
+              to="/mentions-legales" 
+              className="text-primary-foreground/50 hover:text-secondary transition-colors text-sm"
+            >
+              Mentions légales
+            </Link>
+            <Link 
+              to="/politique-confidentialite" 
+              className="text-primary-foreground/50 hover:text-secondary transition-colors text-sm"
+            >
+              Politique de confidentialité
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
