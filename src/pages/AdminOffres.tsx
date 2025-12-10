@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Plus, Pencil, Trash2, Save, X } from "lucide-react";
+import { Plus, Pencil, Trash2, Save, X, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,7 +12,12 @@ import {
   deleteOffre,
 } from "@/lib/offres-storage";
 
+const ADMIN_PASSPHRASE = "EasyvoyageAdmin2025";
+
 const AdminOffres = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [passphrase, setPassphrase] = useState("");
+  const [error, setError] = useState("");
   const [offres, setOffres] = useState<Offre[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -25,8 +30,27 @@ const AdminOffres = () => {
   });
 
   useEffect(() => {
-    setOffres(getOffres());
+    const auth = sessionStorage.getItem("admin_authenticated");
+    if (auth === "true") {
+      setIsAuthenticated(true);
+    }
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setOffres(getOffres());
+    }
+  }, [isAuthenticated]);
+
+  const handleLogin = () => {
+    if (passphrase === ADMIN_PASSPHRASE) {
+      setIsAuthenticated(true);
+      sessionStorage.setItem("admin_authenticated", "true");
+      setError("");
+    } else {
+      setError("Passphrase incorrecte");
+    }
+  };
 
   const resetForm = () => {
     setFormData({
@@ -76,6 +100,34 @@ const AdminOffres = () => {
     });
     setShowAddForm(false);
   };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-6">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <div className="mx-auto mb-4 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <Lock className="h-6 w-6 text-primary" />
+            </div>
+            <CardTitle>Accès protégé</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Input
+              type="password"
+              placeholder="Entrez la passphrase"
+              value={passphrase}
+              onChange={(e) => setPassphrase(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleLogin()}
+            />
+            {error && <p className="text-destructive text-sm">{error}</p>}
+            <Button onClick={handleLogin} className="w-full">
+              Accéder
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background p-6">
