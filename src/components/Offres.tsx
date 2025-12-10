@@ -1,46 +1,15 @@
+import { useState, useEffect } from "react";
 import { MapPin, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const offres = [
-  {
-    id: 1,
-    name: "Bali, Indonésie",
-    image:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800&auto=format&fit=crop",
-    price: "1 299€",
-    rating: 4.9,
-    description: "Plages paradisiaques et temples ancestraux",
-  },
-  {
-    id: 2,
-    name: "Santorini, Grèce",
-    image:
-      "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=800&auto=format&fit=crop",
-    price: "899€",
-    rating: 4.8,
-    description: "Villages blancs et couchers de soleil magiques",
-  },
-  {
-    id: 3,
-    name: "Tokyo, Japon",
-    image:
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=800&auto=format&fit=crop",
-    price: "1 599€",
-    rating: 4.9,
-    description: "Tradition et modernité en harmonie",
-  },
-  {
-    id: 4,
-    name: "Marrakech, Maroc",
-    image:
-      "https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=800&auto=format&fit=crop",
-    price: "499€",
-    rating: 4.7,
-    description: "Souks colorés et palais majestueux",
-  },
-];
+import { Offre, getOffres } from "@/lib/offres-storage";
 
 const Offres = () => {
+  const [offres, setOffres] = useState<Offre[]>([]);
+
+  useEffect(() => {
+    setOffres(getOffres());
+  }, []);
+
   return (
     <section id="offres" className="py-20 bg-background">
       <div className="container mx-auto px-4">
