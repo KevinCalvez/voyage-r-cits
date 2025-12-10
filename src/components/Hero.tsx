@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -21,22 +21,17 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-card/20 backdrop-blur-sm rounded-full text-primary-foreground text-sm font-medium mb-6 animate-fade-in">
-            <MapPin className="h-4 w-4" />
-            Agence de voyage
-          </span>
-
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in [animation-delay:0.2s] opacity-0">
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in opacity-0">
             Vos vacances de rêve{" "}
             <span className="text-secondary">à prix malin</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in [animation-delay:0.4s] opacity-0">
+          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in [animation-delay:0.2s] opacity-0">
             Découvrez nos offres exclusives et partez à l'aventure sans vous ruiner.
             Des séjours tout compris aux meilleures destinations.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:0.6s] opacity-0">
+          <div className="flex justify-center animate-fade-in [animation-delay:0.4s] opacity-0">
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8"
@@ -44,13 +39,6 @@ const Hero = () => {
             >
               Nos offres
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
-            >
-              En savoir plus
             </Button>
           </div>
         </div>
